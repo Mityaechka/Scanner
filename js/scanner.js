@@ -36,5 +36,5 @@ document.onkeydown = function (e) {
 };
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  SendBarcode(request);
+  if (request.barcode) SendBarcode(request.barcode);
 });

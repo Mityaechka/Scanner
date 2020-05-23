@@ -33,10 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
   sendBarcodeBtn.addEventListener("click", function () {
     chrome.tabs.query({}, (tabs) => {
       tabs.forEach((tab) => {
-        chrome.tabs.sendMessage(tab.id, barcodeInput.value);
+        chrome.tabs.sendMessage(tab.id, { barcode: barcodeInput.value });
       });
     });
-    //SendBarcode(barcodeInput.value);
   });
 
   embedHtmlInput.addEventListener("click", function () {

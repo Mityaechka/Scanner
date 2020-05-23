@@ -1,7 +1,18 @@
 function LoadSettings(onload) {
   chrome.storage.sync.get(["settings"], function (result) {
-    var settings = JSON.parse(result.settings);
-    onload(settings);
+    if (result.settings == undefined) {
+      onload({
+        callFunction: false,
+        function: "",
+        embedHtml: false,
+        embedText: true,
+        id: "",
+        attribute: "",
+      });
+    } else {
+      var settings = JSON.parse(result.settings);
+      onload(settings);
+    }
   });
 }
 
@@ -17,7 +28,7 @@ function SendBarcode(barcode) {
       var element = document.getElementById(settings.id);
       if (element == null) return;
       if (settings.embedText) element.innerText = barcode;
-      else {
+      else if (settings.attribute != "") {
         element.removeAttribute(settings.attribute);
         element.setAttribute(settings.attribute, barcode);
       }
