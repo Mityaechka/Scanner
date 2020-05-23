@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Сканнер",
+  "version": "1.0",
+  "permissions": ["storage", "activeTab", "declarativeContent"],
+  "content_scripts": [
+    {
+      "css": ["css/main.css"],
+      "matches": ["<all_urls>"],
+      "js": [
+        "javascript/jquery.js",
+        "javascript/scanner.js",
+        "javascript/chrome.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Сканнер",
+    "default_popup": "html/popup.html"
+  }
+}

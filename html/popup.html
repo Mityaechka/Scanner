@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="../javascript/jquery.js" type="text/javascript"></script> <!-- Подключаю jquery -->
+  <script src="popup.js" type="text/javascript"></script>
+  <script src="../javascript/chrome.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+  <h1>Настройки сканера</h1>
+  <div class="main-area">
+    <div class="side-area">
+      <div class="container">
+        <p class="element label">Добавлять код к html</p>
+        <input class="element" id="embedHtml" type="checkbox">
+      </div>
+      <div id="idValueDiv">
+        <div class="container">
+          <p class="element label">ID элемента</p>
+          <input class="element small" id="idValue" type="text">
+        </div>
+        <div class="container">
+          <p class="element label">Добавить как текст</p>
+          <input class="element" id="embedText" type="checkbox">
+        </div>
+        <div id="attributeValueDiv">
+          <div class="container">
+            <p class="element label">Атрибут</p>
+            <input class="element small" id="attributeValue" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side-area">
+      <div class="container">
+        <p class="element label">Вызывать функцию</p>
+        <input class="element" id="callFunction" type="checkbox">
+      </div>
+      <div id="functionValueDiv">
+        <div class="container">
+          <p class="element label">Функция</p>
+          <input class="element small" id="functionValue" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="saveBtn">Сохранить</button>
+  <div class="container">
+    <p class="element">Штрих-код</p>
+    <input class="element label" type="text" id="barcode" min="10" max="100">
+    <button class="element small" id="sendBarcode">Отправить</button>
+  </div>
+</body>
+
+</html>
+
+
+<!-- <div class="input-group">
+      <p>Сообщать о запуске</p>
+      <input id="showInit" type="checkbox">
+    </div> -->
