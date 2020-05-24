@@ -10,16 +10,7 @@
 .line-group > * {
   display: inline-block;
 }
-/* button {
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 10px;
-  padding: 5px;
-  border: none;
-} */
-/* button:focus {
-  outline: 0;
-} */
+
 .container {
   padding-left: 3px;
   margin: 0;
@@ -29,14 +20,14 @@
   display: inline-block;
 }
 .label {
-  font-size: 15px;
+  font-size: 13px;
+  width: 130px;
+}
+input.fluid {
   width: 150px;
 }
-input.small {
-  width: 120px;
-}
 
-button {
+button.ex-btn {
   background-color: #0c59bd;
   border-radius: 10px;
   border: none;
@@ -45,16 +36,16 @@ button {
   font-size: 16px;
   font-weight: 300;
 }
-button:hover {
+button.ex-btn:hover {
   cursor: pointer;
   background-color: #09428b;
 }
 
-button:active {
+button.ex-btn:active {
   outline: none;
   border: none;
 }
 
-button:focus {
+button.ex-btn:focus {
   outline: 0;
 }

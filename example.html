@@ -1,9 +1,8 @@
 <p>Код: </p><input id="barCodeInput">
-<p id=barcode></p>
+<div id=barcode></div>
 <script>
     function getBarCode(barcode) {
-        alert(barcode);
-        document.getElementById("barcode").innerText = "Штрих-код: " + barcode;
+        document.getElementById("barcode").innerHTML += "<p>" + barcode + "</p>";
     }
 
 </script>

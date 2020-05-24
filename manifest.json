@@ -5,7 +5,6 @@
   "permissions": ["storage", "activeTab", "declarativeContent"],
   "content_scripts": [
     {
-      "css": ["css/main.css"],
       "matches": ["<all_urls>"],
       "js": ["js/scanner.js", "js/chrome.js"]
     }
