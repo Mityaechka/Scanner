@@ -2,11 +2,11 @@
   "manifest_version": 2,
   "name": "Сканнер",
   "version": "1.0",
-  "permissions": ["storage", "activeTab", "declarativeContent"],
+  "permissions": ["storage", "activeTab"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["js/scanner.js", "js/chrome.js"]
+      "js": ["js/onscan.js","js/scanner.js", "js/chrome.js"]
     }
   ],
   "browser_action": {
