@@ -5,7 +5,7 @@ function LoadSettings(onload) {
         callFunction: false,
         function: "",
         embedHtml: false,
-        embedText: true,
+        embedText: "text",
         id: "",
         attribute: "",
       });
@@ -24,8 +24,8 @@ function SaveSettings(settings) {
  * @param {string} barcode
  */
 function SendBarcode(barcode) {
-  if (!barcode.match(/^[0-9]{13,20}/)) {
-    console.error(`${barcode} has incorrect format`);
+  if (!barcode.match(/^[0-9a-zA-Z]{10,20}/)) {
+    console.error(`Barcode "${barcode}" has incorrect format`);
     return;
   }
   LoadSettings(function (settings) {
@@ -33,19 +33,26 @@ function SendBarcode(barcode) {
       try {
         location.href = `javascript:${settings.function}('${barcode}'); void 0`;
       } catch (e) {
-        console.error(`function ${settings.function} not found`);
+        console.error(`Function ${settings.function} not found`);
       }
     }
     if (settings.embedHtml) {
       var element = document.getElementById(settings.id);
       if (element == null) {
-        console.error(`element ${settings.id} not found`);
+        console.error(`Element "${settings.id}" not found`);
         return;
       }
-      if (settings.embedText) element.innerText = barcode;
-      else if (settings.attribute != "") {
-        element.removeAttribute(settings.attribute);
-        element.setAttribute(settings.attribute, barcode);
+      switch (settings.embedText) {
+        case "text":
+          element.innerText = barcode;
+          break;
+        case "value":
+          element.value = barcode;
+          break;
+        case "attribute":
+          element.removeAttribute(settings.attribute);
+          element.setAttribute(settings.attribute,barcode);
+          break;
       }
     }
   });

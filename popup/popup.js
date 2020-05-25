@@ -43,10 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     embedHtmlChanged(settings.embedHtml);
   });
 
-  embedTextInput.addEventListener("click", function () {
-    settings.embedText = !settings.embedText;
+  embedTextInput.onchange= function () {
+    settings.embedText = embedTextInput.value;
     embedTextChanged(settings.embedText);
-  });
+  };
   callFunctionValueInput.addEventListener("click", function () {
     settings.callFunction = !settings.callFunction;
     callFunctionChanged(settings.callFunction);
@@ -60,11 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   function embedTextChanged(state) {
-    embedTextInput.checked = state;
-    if (state) {
-      attributeValueDiv.hidden = true;
-    } else {
+    embedTextInput.value = state;
+    if (state=="attribute") {
       attributeValueDiv.hidden = false;
+    } else {
+      attributeValueDiv.hidden = true;
     }
   }
   function callFunctionChanged(state) {
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.function = functionValueInput.value;
 
     data.embedHtml = embedHtmlInput.checked;
-    data.embedText = embedTextInput.checked;
+    data.embedText = embedTextInput.value;
     data.id = idValueInput.value;
     data.attribute = attributeValueInput.value;
 
